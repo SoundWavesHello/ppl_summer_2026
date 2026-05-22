@@ -1,0 +1,4 @@
+[debug] [scala_intro-build] Classpath dependencies List()
+[debug] [scala_intro-build] Dependencies from configurations List()
+[debug] Bloop wrote the configuration of project 'scala_intro-build' to '/Users/kevinlane/Documents/CSCI 3155/ppl_summer_2026/lectures/week_1/scala_intro/project/.bloop/scala_intro-build.json'
+[success] Generated .bloop/scala_intro-build.json
