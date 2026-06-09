@@ -60,7 +60,6 @@ private case class TestClass() extends TestTrait
 
 Objects vs. Classes . . . what is the difference?
 
-An object is an instance of a class
 
  */
 
@@ -74,6 +73,9 @@ object Person {
         s"Person($name)"
     }
 }
+
+var myPerson = new Person()
+var otherPerson = new Person()
 
 // Classes allow for more flexibility
 case class Bravo(val foo: String, val bar: Int){
@@ -111,6 +113,11 @@ abstract class Delta(foo: String, bar: Int){
   val ssn = bar
 }
 
+case class Gulf(some: String, bar: Int)
+case class Gulf(some: String, bar: Int, other: Boolean)
+
+case class ClassForExampl() extends Delta with Gulf
+
 /* 
 The factory convention . . . lets you chain together object creation pretty quickly
  */
@@ -138,11 +145,13 @@ object FactoryPerson {
 // 'case' keyword automatically applies this paradigm, so we no longer need to use the 'new' keyword
 
 case class MyClass(foo: String, bar: Int)
+val temp = MyClass("hi", 12)
 
 // multiple inheritance
 abstract class Echo()
 sealed trait Foxtrot
 sealed trait Golf
 case class Hotel()
+case class Delta()
 
 class Indigo() extends Hotel with Foxtrot with Golf

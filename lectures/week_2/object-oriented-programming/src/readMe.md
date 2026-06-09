@@ -7,7 +7,7 @@ The gameplan for the week:
 
 Some logistics:
 - PS1 is due tonight at midnight
-- PS2 is out tomorrow evening; due on Monday, June 8th at midnight
+- PS2 is out tomorrow; due on Monday, June 8th at midnight
 - Project 1 is coming out on Friday and will be due in two weeks time (from that Friday)
 - No lecture on Thursday, as I will be attending a conference.  A recording will be available on Canvas
 

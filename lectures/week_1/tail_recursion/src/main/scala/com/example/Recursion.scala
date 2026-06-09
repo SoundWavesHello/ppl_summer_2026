@@ -19,10 +19,9 @@ object Recursion extends App {
    */
   @tailrec
   def addListTailRec(myList: List[Int], acc: Int = 0): Int = {
-    if (myList.isEmpty) {
-      acc
-    } else{
-      addListTailRec(myList.tail, acc + myList.head)
+    myList match {
+      case Nil => acc
+      case head :: tail => addListTailRec(tail, acc + head)
     }
   }
 
@@ -62,13 +61,19 @@ object Recursion extends App {
     }
   }
 
-  // def filterListMatchingWithTailRec(myList: List[Int], target: Int, acc: List[Int] = Nil) = {
-  //   myList match {
-  //     case Nil => ???
-  //     case head :: Nil => ???
-  //     case head :: tail =>???
-  //   }
-  // }
+  @tailrec
+  def filterListMatchingWithTailRec(myList: List[Int], target: Int, acc: List[Int] = Nil): List[Int] = {
+    myList match {
+      case Nil => acc
+      case head :: tail => head match {
+        case `target` => filterListMatchingWithTailRec(tail, target, acc)
+        case _ => {
+          val newAcc = head :: acc
+          filterListMatchingWithTailRec(tail, target, newAcc)
+        }
+      }
+    }
+  }
 
   /* A function that takes an integer n and returns the nth number of a
     fibonnaci sequence.  Worth noting: I consider the sequence to be
@@ -89,12 +94,31 @@ object Recursion extends App {
 
   }
 
+  @tailrec
+  def nthFibonnaciNumberTail(n: Int, twoPrior: Int = 0, onePrior: Int = 1): Int = {
+    // base case
+    if (n <= 0) {
+      twoPrior
+    } else if (n == 1) {
+      onePrior
+    }
+    else {
+      // recursive call
+      nthFibonnaciNumberTail(n-1, onePrior, onePrior + twoPrior)
+    }
+
+  }
+
+  // two accumulators (one per base case)
+  // accumulators a and b are for 1st and 2nd respectively . . . so change acc 1 to b and acc 2 to a+b
+
   /*
   A function that takes in an equation of only parantheses and returns whether the
   equation is balanced or not. (()))()) => ) => )
    */
 
 
+  // @tailrec
   def balancedParenthesesProblem(equation: String): Boolean = {
     // "myString" contains "String"
     // .replace() method on a string to remove a substring
@@ -103,8 +127,20 @@ object Recursion extends App {
     // .length() method on a string to check its length
 
     // base case for if its true
-    // base case for if its false
-    // recursive call
+    if (equation.length() == 0){
+      true
+    } else {
+      val smallerEquation = equation.replace("()", "")
+      // base case for if its false
+      if (equation.length() == smallerEquation.length()){
+        false
+      } else{
+        // recursive call
+        balancedParenthesesProblem(smallerEquation)
+      }
+    }
+    
+    
     false
   }
 }

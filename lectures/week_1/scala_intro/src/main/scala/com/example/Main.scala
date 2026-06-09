@@ -67,7 +67,7 @@ object Main extends App {
   def patternMatchingOnLists(myList: List[Int]): Int = {
     myList match {
       case head::Nil => head
-      case something::tail => tail.head
+      case head::tail => tail.head
       case _ => 0
     }
 

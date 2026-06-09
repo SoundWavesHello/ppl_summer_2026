@@ -44,13 +44,15 @@ class RecursionTest extends org.scalatest.funsuite.AnyFunSuite {
 
   test("fibonnaci sequence") {
 
-    assert(Recursion.nthFibonnaciNumber(-3) == 0)
+    assert(Recursion.nthFibonnaciNumberTail(-3) == 0)
 
-    assert(Recursion.nthFibonnaciNumber(0) == 0)
+    assert(Recursion.nthFibonnaciNumberTail(0) == 0)
 
-    assert(Recursion.nthFibonnaciNumber(1) == 1)
+    assert(Recursion.nthFibonnaciNumberTail(1) == 1)
 
     // write your test cases here
+    assert(Recursion.nthFibonnaciNumberTail(4) == 3)
+
   }
 
   test("balanced parentheses") {

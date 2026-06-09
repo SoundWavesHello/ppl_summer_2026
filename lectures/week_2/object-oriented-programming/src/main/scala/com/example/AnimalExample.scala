@@ -19,9 +19,9 @@ abstract class Animal() extends Moveable{
 // has a species name
 
 case class Dog() extends Animal with CanSpeak {
-//    override def move(): Unit = {
-//        print("Dog runs")
-//    }
+   override def move(): Unit = {
+       print("Dog runs")
+   }
 }
 
 case class Slug() extends Animal {
